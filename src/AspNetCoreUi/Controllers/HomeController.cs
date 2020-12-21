@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AspNetCoreUi.Models;
+using AspNetCoreUi.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using AspNetCoreUi.Services;
 
 namespace AspNetCoreUi.Controllers
 {
@@ -20,8 +23,12 @@ namespace AspNetCoreUi.Controllers
 
         public IActionResult Index()
         {
+            //Task: Update the application home page to show a list of rover images using the NASA Service to fetch the data
             return View();
         }
+
+        //Task: Add a new action/view that returns a page with a list of people. It should keep the theme
+        //of the application
 
         public IActionResult Privacy()
         {

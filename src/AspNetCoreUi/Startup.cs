@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.InMemory;
+using AspNetCoreUi.Infrastructure;
+using AspNetCoreUi.Services;
 
 namespace AspNetCoreUi
 {
@@ -23,6 +27,11 @@ namespace AspNetCoreUi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DatabaseContext>(options =>
+            {
+                options.UseInMemoryDatabase("Demo");
+            });
+
             services.AddControllersWithViews();
         }
 

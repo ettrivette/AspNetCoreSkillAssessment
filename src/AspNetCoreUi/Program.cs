@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
+using AspNetCoreUi.Domain;
+using AspNetCoreUi.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 namespace AspNetCoreUi
 {
@@ -13,7 +17,24 @@ namespace AspNetCoreUi
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args)
+                .Build();
+
+            var scope = host
+                .Services
+                .CreateScope();
+
+            DatabaseContext context = (DatabaseContext)scope
+                .ServiceProvider
+                .GetRequiredService<DatabaseContext>();
+
+            DatabaseSeed seed = new DatabaseSeed();
+
+            seed
+                .SeedContext(context)
+                .Wait();
+
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
