@@ -23,11 +23,11 @@ namespace AspNetCoreUi.Controllers
 
         public IActionResult Index()
         {
-            //Task: Update the application home page to show a list of rover images using the NASA Service to fetch the data
+            //TODO: Update the application home page to show a list of rover images using the NASA Service to fetch the data
             return View();
         }
 
-        //Task: Add a new action/view that returns a page with a list of people. It should keep the theme
+        //TODO: Add a new action/view that returns a page with a list of people. It should keep the theme
         //of the application
 
         public IActionResult Privacy()

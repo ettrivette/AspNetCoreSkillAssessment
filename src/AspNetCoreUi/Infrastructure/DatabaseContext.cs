@@ -16,5 +16,7 @@ namespace AspNetCoreUi.Infrastructure
         }
 
         public DbSet<Person> People { get; set; }
+
+        //TODO: Add address entity
     }
 }

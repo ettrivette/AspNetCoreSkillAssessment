@@ -14,7 +14,7 @@ namespace AspNetCoreUi.Services
     {
         public async Task<IEnumerable<RoverPhoto>> GetRoverImages(string Camera, int Sol)
         {
-            //Task: Write an API call to fetch the NASA rover images
+            //TODO: Write an API call to fetch the NASA rover images
             //API Key: 1P3xQ5eOLdLp0YlenTqnlT6FuIBXCPDi4J1IKCcX
             //The URL to call (GET) is https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol={SOL}&camera={CAMERA}&api_key={APIKEY}
             //The API returns JSON and can be deserialized as an instance of "GetRoverPhotoResults"
